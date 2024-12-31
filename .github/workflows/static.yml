@@ -1,43 +1,182 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Life Predictions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #fff;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            position: relative;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ffdfba, 0 0 20px #ff9f43;
+            }
+            to {
+                text-shadow: 0 0 20px #ffe8cc, 0 0 40px #ff9f43;
+            }
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background: #ff9f43;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff9f43;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff6f00;
+        }
+        .message {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            animation: fade-in 1s ease-in-out;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2025 Life Predictions 🔮</h1>
+        <div class="input-section">
+            <input id="nameInput" type="text" placeholder="Enter your name" />
+            <button onclick="generatePrediction()">Get to Know Something</button>
+        </div>
+        <div class="message" id="message"></div>
+        <div class="footer">Predictions by Seedepudi Venkata Surendra Mahesh Kumar</div>
+    </div>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    <script>
+        function generatePrediction() {
+            const name = document.getElementById('nameInput').value.trim();
+            const messageContainer = document.getElementById('message');
+    
+            if (name) {
+                const predictions = [
+                    `${name}, you'll achieve a major milestone in 2025! 🎯`,
+                    `Exciting adventures await you in 2025, ${name}. ✈️`,
+                    `Get ready for surprises in love and friendship, ${name}. 💖`,
+                    `2025 will bring you growth and success, ${name}. 🌟`,
+                    `${name}, a creative spark will change your path in 2025. 🎨`,
+                    `You’ll form a meaningful new connection, ${name}. 🌈`,
+                    `${name}, financial gains are heading your way. 💰`,
+                    `A hidden talent will emerge in 2025, ${name}. 🌟`,
+                    `${name}, your leadership skills will shine this year. 🦸‍♂️`,
+                    `Expect a transformative journey, ${name}. 🛤️`,
+                    `You'll reconnect with an old friend, ${name}. 🤝`,
+                    `${name}, health and vitality will be your strength in 2025. 🏋️‍♀️`,
+                    `A new hobby will bring joy into your life, ${name}. 🎻`,
+                    `An unexpected opportunity will knock on your door, ${name}. 🚪`,
+                    `${name}, prepare to travel to a dream destination. 🌍`,
+                    `You’ll find clarity in your career path, ${name}. 📈`,
+                    `2025 is your year to master a new skill, ${name}. 🎓`,
+                    `You’ll receive recognition for your hard work, ${name}. 🏆`,
+                    `${name}, love is on the horizon! 💌`,
+                    `Your creativity will inspire others, ${name}. 🎨`,
+                    `A cherished wish will come true for you, ${name}. ✨`,
+                    `You’ll step out of your comfort zone with confidence, ${name}. 🦅`,
+                    `This year will bring inner peace and mindfulness, ${name}. 🧘‍♂️`,
+                    `${name}, prepare for an exciting career breakthrough! 🚀`,
+                    `Unexpected good news is coming your way, ${name}. 📬`,
+                    `You’ll make a positive impact on someone’s life, ${name}. 🌟`,
+                    `${name}, a new friendship will bloom in 2025. 🌸`,
+                    `You’ll achieve a personal best in fitness, ${name}. 🏅`,
+                    `Prepare for a fun-filled celebration, ${name}. 🎉`,
+                    `Your communication skills will bring new opportunities, ${name}. 📢`,
+                    `${name}, an innovative idea will lead to success. 💡`,
+                    `Expect to dive into an exciting new book or project, ${name}. 📖`,
+                    `Your positivity will inspire those around you, ${name}. 🌞`,
+                    `You’ll solve a complex problem with ease, ${name}. 🧠`,
+                    `${name}, your hard work will finally pay off. 💼`,
+                    `A long-awaited reunion is on the cards, ${name}. 🎈`,
+                    `You’ll discover a new passion in 2025, ${name}. 🔥`,
+                    `Your network will expand in unexpected ways, ${name}. 🌐`,
+                    `Financial stability will give you freedom, ${name}. 💵`,
+                    `${name}, you'll find strength in unexpected challenges. 💪`,
+                    `You’ll make memories that last a lifetime, ${name}. 🌅`,
+                    `Prepare to learn something fascinating, ${name}. 📚`,
+                    `You’ll overcome a fear and feel liberated, ${name}. 🦋`,
+                    `Your determination will inspire a team, ${name}. 🚩`,
+                    `${name}, a mentor will guide you to new heights. 🧑‍🏫`,
+                    `You'll embrace change with grace, ${name}. 🌀`,
+                    `${name}, a surprise gift is in store for you. 🎁`,
+                    `Your leadership will create a positive ripple, ${name}. 🌊`,
+                    `${name}, you’ll discover hidden reserves of energy. ⚡`,
+                    `You’ll receive unexpected support from loved ones, ${name}. 🤗`,
+                    `A creative project will gain traction, ${name}. 🎬`,
+                    `${name}, you’ll make a decision that changes everything. 🎯`,
+                    `2025 will bring you closer to your dreams, ${name}. 🌠`,
+                    `${name}, expect a promotion or new job offer. 💼`,
+                    `Your resilience will be your superpower, ${name}. 🛡️`,
+                    `${name}, you'll create something that inspires others. ✍️`,
+                    `An exciting collaboration is on the horizon, ${name}. 🤝`,
+                    `${name}, a spontaneous trip will rejuvenate you. 🗺️`,
+                    `Your intuition will lead you to success, ${name}. 🔮`,
+                    `You’ll master a technology or tool, ${name}. 💻`,
+                    `${name}, the stars are aligning for a magical year. 🌌`,
+                    `You’ll experience the power of gratitude, ${name}. 🙏`,
+                    `${name}, a fun new tradition will begin in 2025. 🎈`,
+                    `Prepare for a memorable celebration, ${name}. 🎊`,
+                    `You’ll discover a new recipe that you’ll love, ${name}. 🥘`,
+                    `${name}, your sense of humor will light up 2025. 😂`,
+                    `You’ll reconnect with nature and find peace, ${name}. 🌳`,
+                    `${name}, a surprise invitation will delight you. ✉️`,
+                    `Your financial goals will take shape this year, ${name}. 📊`,
+                    `You’ll support a cause close to your heart, ${name}. ❤️`,
+                    `An unexpected talent will surface, ${name}. 🌟`,
+                    `${name}, your 2025 will be filled with laughter. 🤣`,
+                    `You’ll gain clarity on a lingering question, ${name}. 💡`,
+                    `An inspiring mentor will guide you, ${name}. 🌟`,
+                    `${name}, you’ll complete a project with flying colors. 🏁`,
+                    `You’ll learn to trust yourself more, ${name}. 🌿`,
+                    `Prepare for a lucky moment, ${name}. 🍀`,
+                    `${name}, a memorable experience is around the corner. 🌠`
+                ];
+                const randomPrediction = predictions[Math.floor(Math.random() * predictions.length)];
+                messageContainer.innerHTML = randomPrediction;
+            } else {
+                messageContainer.innerHTML = "Please enter your name to receive a prediction!";
+            }
+        }
+    </script>    
+</body>
+</html>
